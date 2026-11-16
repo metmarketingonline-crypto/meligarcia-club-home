@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/melisgrz/public_html/
+    - export DEPLOYPATH=/home/melisgrz/public_html/proyectos/
     - /bin/cp -R index.html assets $DEPLOYPATH
