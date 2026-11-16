@@ -243,10 +243,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   /* un solo CTA fijo en celular: barra inferior; el encabezado deja de ser fijo y pierde su boton */
   header{position:absolute;background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;border-color:transparent!important}
   .nav .btn{display:none}
-  .float{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(5,10,19,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);transform:translateY(105%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .float{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;pointer-events:none;padding:34px max(16px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:linear-gradient(to top,rgba(5,10,19,.9) 0%,rgba(5,10,19,.55) 55%,rgba(5,10,19,0) 100%);transform:translateY(110%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
   .float.show{transform:none}
-  .float.hide{transform:translateY(105%)}
-  .float .btn{width:100%;justify-content:center;padding:14px 20px;border-radius:12px;animation:none;box-shadow:0 6px 22px -10px rgba(255,238,168,.5)}
+  .float.hide{transform:translateY(110%)}
+  .float .btn{pointer-events:auto;position:relative;overflow:hidden;width:100%;justify-content:center;padding:15px 20px;border-radius:14px;animation:none;box-shadow:0 10px 28px -14px rgba(255,238,168,.6)}
+  /* brillo suave que cruza el boton una vez cada 6 segundos */
+  .float .btn:after{content:"";position:absolute;top:0;bottom:0;left:-45%;width:28%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:sheen 6s ease-in-out 2.5s infinite}
+  @keyframes sheen{0%,65%{left:-45%}100%{left:135%}}
 }
 
 @media(prefers-reduced-motion:reduce){
